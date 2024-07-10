@@ -12,8 +12,6 @@ import dev.shashi.agendaplus.dto.TaskDTO;
 import dev.shashi.agendaplus.entitys.Atachment;
 import dev.shashi.agendaplus.entitys.Reminder;
 
-import dev.shashi.agendaplus.dao.TaskRepo;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,7 +35,8 @@ public class CreateTaskViewBOImpl implements CreateTAskViewBO {
 
         try {
             conn.setAutoCommit(false); // disable auto-commit
-            int taskId = TaskRepo.saveTask(task);
+            //int taskId = TaskDAO.saveTask(task);
+            int taskId = taskDAO.saveTask(task);
             if (taskId != -1) {
                 boolean allAttachmentsSaved = true;
                 for (AtachmentDTO atachment : atachmentsDTO) {

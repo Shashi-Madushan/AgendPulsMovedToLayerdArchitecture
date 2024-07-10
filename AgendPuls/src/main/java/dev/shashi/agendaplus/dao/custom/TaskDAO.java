@@ -1,6 +1,7 @@
 package dev.shashi.agendaplus.dao.custom;
 
 import dev.shashi.agendaplus.dao.SuperDAO;
+import dev.shashi.agendaplus.dto.TaskDTO;
 import dev.shashi.agendaplus.entitys.Task;
 
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ public interface TaskDAO extends SuperDAO {
 
     int getDoneTaskCount(LocalDate date) throws SQLException, ClassNotFoundException;
 
-    int saveTask(Task task);
+    int saveTask(TaskDTO task);
 
     boolean deleteTask(int taskId) throws SQLException, ClassNotFoundException;
 
